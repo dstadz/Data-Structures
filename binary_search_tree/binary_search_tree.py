@@ -5,7 +5,7 @@ from dll_stack import Stack
 
 
 class BinarySearchTree:
-    def __init__(self, value):
+    def __init__(self, value = None):
         self.value = value
         self.left = None
         self.right = None
@@ -63,7 +63,25 @@ class BinarySearchTree:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        pass
+
+        if self.left:
+            return self.in_order_print(self.left)
+            print(self.value)
+            if self.right:
+                return self.in_order_print(self.right)
+        else:
+            print
+
+        if not self.left and not self.right:
+            print(self.value)
+            return
+
+        if self.left:
+            return self.left.in_order_print(self)
+
+
+
+
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
@@ -85,3 +103,17 @@ class BinarySearchTree:
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
         pass
+
+
+a = [4,3,9,2,0,1,5,8,7]
+b = [8,5,7,6,3,4,2]
+
+aTree = BinarySearchTree(6)
+bTree = BinarySearchTree(1)
+for i in a:
+    aTree.insert(i)
+for j in b:
+    bTree.insert(j)
+
+#aTree.in_order_print(aTree)
+bTree.in_order_print(bTree)
